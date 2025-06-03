@@ -1,0 +1,506 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Vectora LT Std";
+  src: url("/fonts/Vectora-LT-Std-55-Roman.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vectora LT Std";
+  src: url("/fonts/Vectora-LT-Std-75-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vectora LT Std";
+  src: url("/fonts/Vectora-LT-Std-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Vectora LT Std", Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  /* Core colors */
+  --color-primary: #05e0e9;
+  --color-primary-hover: #04c4cc;
+  --color-background: #ffffff;
+  --color-sidebar: #e9edf2;
+  --color-text: #000000;
+  --color-text-light: #595959;
+  --color-border: #d1d5db;
+
+  /* Status colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* Derived variables */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+  --sidebar-bg: 210 20% 93%;
+  --sidebar-active: 183 96% 47%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+  --primary: 183 96% 47%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 96.1%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 0 0% 96.1%;
+  --muted-foreground: 0 0% 45.1%;
+  --accent: 0 0% 96.1%;
+  --accent-foreground: 0 0% 9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 0 0% 3.9%;
+  --radius: 0.5rem;
+}
+
+.sidebar-bg {
+  background-color: #e9edf2;
+}
+
+.primary-color {
+  color: #05e0e9;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-black {
+  font-weight: 900;
+}
+
+.sidebar {
+  background-color: #e9edf2 !important;
+  transition: width 0.3s ease;
+}
+
+.sidebar-collapsed {
+  width: 80px !important;
+}
+
+.sidebar-expanded {
+  width: 250px !important;
+}
+
+.active-link {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* DriveLeadz Design System - Using standard CSS instead of @apply */
+
+/* Typography */
+.dl-heading-1 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.dl-heading-2 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+.dl-heading-3 {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+
+.dl-body {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.dl-small {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+/* Buttons */
+.dl-btn-primary {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: var(--color-primary);
+  color: black;
+  font-weight: 700;
+  border-radius: 9999px;
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.dl-btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.dl-btn-secondary {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.dl-btn-secondary:hover {
+  background-color: #f3f4f6;
+}
+
+.dl-btn-icon {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  transition-property: color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  white-space: nowrap;
+}
+
+.dl-btn-icon:hover {
+  color: var(--color-primary);
+}
+
+.btn-primary {
+  background-color: #05e0e9;
+  color: #000000;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 28px;
+  cursor: pointer;
+  font-family: "Vectora LT Std", sans-serif;
+  font-size: 16px;
+}
+
+.btn-secondary {
+  background-color: #e5e7eb;
+  color: #000000;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 28px;
+  cursor: pointer;
+  font-family: "Vectora LT Std", sans-serif;
+  font-size: 16px;
+}
+
+/* Form Elements */
+.dl-input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-border);
+}
+
+.dl-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.dl-input-search {
+  padding-left: 2.5rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+}
+
+.dl-select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-sidebar);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border: 1px solid var(--color-border);
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background-color: #e9edf2;
+  font-family: "Vectora LT Std", sans-serif;
+  font-size: 15px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 4px;
+  font-family: "Vectora LT Std", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+}
+
+/* Tables */
+.dl-table-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.dl-table-header {
+  background-color: var(--color-sidebar);
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+.dl-table-header-cell {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.dl-table-row {
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.dl-table-row:hover {
+  background-color: #f3f4f6;
+}
+
+.dl-table-cell {
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background-color: #e9edf2;
+  padding: 12px;
+  text-align: left;
+  font-family: "Vectora LT Std", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #d1d5db;
+  font-family: "Vectora LT Std", sans-serif;
+  font-size: 15px;
+  color: #000000;
+}
+
+.table tr:hover {
+  background-color: #f3f4f6;
+}
+
+/* Cards and Containers */
+.dl-card {
+  background-color: var(--color-sidebar);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Dashboard card styling */
+.dashboard-card {
+  background-color: #e9edf2 !important;
+  padding: 1.5rem !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+.dl-section {
+  margin-bottom: 2rem;
+}
+
+/* Status Indicators */
+.dl-status-active {
+  color: var(--color-success);
+}
+
+.dl-status-pending {
+  color: var(--color-warning);
+}
+
+.dl-status-inactive {
+  color: var(--color-error);
+}
+
+/* Filters */
+.dl-filter-tag {
+  background-color: var(--color-sidebar);
+  border-radius: 9999px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Modal styles - updated to match specifications */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #e9edf2;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-family: "Vectora LT Std", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #05e0e9;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #000000;
+}
+
+.modal-body {
+  margin-bottom: 24px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Modal Form Styles - Updated to match guidelines */
+.modal-form-input,
+.modal-form-select,
+.modal-form-textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #e9edf2;
+  border: 1px solid #d1d5db;
+  font-family: "Vectora LT Std", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.modal-form-label {
+  display: block;
+  font-family: "Vectora LT Std", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.modal-form-value {
+  padding: 0.5rem;
+  background-color: #e9edf2;
+  border: none;
+  font-family: "Vectora LT Std", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000000;
+}
+
+/* Button font weight normalization */
+.dl-btn-primary,
+.upload-button,
+button[type="submit"] {
+  font-weight: normal;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
